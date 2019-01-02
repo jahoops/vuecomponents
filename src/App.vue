@@ -1,28 +1,19 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <v-selectpage ref="selectify" :data="list" key-field="id" show-field="name" ></v-selectpage>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+var options = [
+  { id: 1, name: 'chocolate', desc: 'Chocolate' },
+  { id: 2, name: 'strawberry', desc: 'Strawberry' },
+  { id: 3, name: 'vanilla', desc: 'Vanilla' }
+];
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    data(){
+        return {list: options}
+    },
+    mounted: function() {
+      console.log('mounted',this.$refs.selectify);
+    }
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
